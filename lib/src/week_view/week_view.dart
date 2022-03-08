@@ -379,13 +379,24 @@ class WeekViewState<T> extends State<WeekView<T>> {
 
   /// Default builder for week line.
   Widget _defaultWeekDayBuilder(DateTime date) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(Constants.weekTitles[date.weekday - 1]),
-          Text(date.day.toString()),
+          Text(
+            Constants.weekTitles[date.weekday - 1],
+            style: TextStyle(
+              color: colorScheme.onSecondary,
+            ),
+          ),
+          Text(
+            date.day.toString(),
+            style: TextStyle(
+              color: colorScheme.onSecondary,
+            ),
+          ),
         ],
       ),
     );
@@ -395,6 +406,7 @@ class WeekViewState<T> extends State<WeekView<T>> {
   /// [widget.eventTileBuilder] is null
   ///
   Widget _defaultTimeLineBuilder(DateTime date) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Transform.translate(
       offset: Offset(0, -7.5),
       child: Padding(
@@ -404,6 +416,7 @@ class WeekViewState<T> extends State<WeekView<T>> {
           textAlign: TextAlign.right,
           style: TextStyle(
             fontSize: 15.0,
+            color: colorScheme.onSecondary,
           ),
         ),
       ),

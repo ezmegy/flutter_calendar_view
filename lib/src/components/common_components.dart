@@ -51,9 +51,10 @@ class CalendarPageHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       decoration: BoxDecoration(
-        color: backgroundColor,
+        color: colorScheme.secondaryVariant,
       ),
       clipBehavior: Clip.antiAlias,
       child: Row(
@@ -70,7 +71,7 @@ class CalendarPageHeader extends StatelessWidget {
             icon: Icon(
               Icons.chevron_left,
               size: 30,
-              color: iconColor,
+              color: colorScheme.onSecondary,
             ),
           ),
           Expanded(
@@ -79,6 +80,9 @@ class CalendarPageHeader extends StatelessWidget {
               child: Text(
                 dateStringBuilder(date, secondaryDate: secondaryDate),
                 textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: colorScheme.onSecondary,
+                ),
               ),
             ),
           ),
@@ -93,7 +97,7 @@ class CalendarPageHeader extends StatelessWidget {
             icon: Icon(
               Icons.chevron_right,
               size: 30,
-              color: iconColor,
+              color: colorScheme.onSecondary,
             ),
           ),
         ],
